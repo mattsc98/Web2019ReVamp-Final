@@ -10,6 +10,6 @@ namespace Web2019ReVamp.Models
     {
         public ApplicationUser[] Administrators { get; set; }
 
-        public ApplicationUser[] Everyone { get; set; }
+        public ApplicationUser[] Everyone       { get; set; }
     }
 }
