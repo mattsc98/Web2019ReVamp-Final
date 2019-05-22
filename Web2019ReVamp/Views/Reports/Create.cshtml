@@ -1,0 +1,108 @@
+﻿@model Web2019ReVamp.Models.Reports
+@using Microsoft.AspNetCore.Identity
+@using Web2019ReVamp.Data;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="row">
+    <div class="col-md-12 report-writer-contents shadow">
+        <h2 class="text-center">Create Report</h2>
+
+        <hr />
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-row">
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-row form-spacing">
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="HazardType" class="control-label"></label>
+                        <select asp-for="HazardType" class="form-control">
+                            <option value="vehicle">Vehicle</option>
+                            <option value="Structure">Structure</option>
+                            <option value="Condition">Condition</option>
+                            <option value="Unsafe Act">Unsafe Act</option>
+                        </select>
+                        <span asp-validation-for="HazardType" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>When did the hazard occur</label>
+                        <input asp-for="HazardDateTime" class="form-control" />
+                        <span asp-validation-for="HazardDateTime" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row form-spacing">
+
+
+            </div>
+
+            <div class="form-row form-spacing">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="RepDescription" class="control-label"></label>
+                        <textarea asp-for="RepDescription" class="form-control"></textarea>
+                        <span asp-validation-for="RepDescription" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row form-spacing">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="Location" class="control-label"></label>
+                        <textarea asp-for="Location" class="form-control"></textarea>
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row form-spacing">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="Photo" class="control-label"></label>
+                        <input asp-for="Photo" type="file" class="form-control" />
+                        <span asp-validation-for="Photo" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group text-center">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <input type="submit" value="Create" class="btn btn-default button-spacing" />
+
+
+                }
+                else
+                {
+                     <h4 class="text-danger"> You must be loged in to submit a report</h4>
+                }
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="body-links"><h4>Return Home</h4></a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

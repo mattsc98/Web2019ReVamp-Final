@@ -1,0 +1,122 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@model IEnumerable<Web2019ReVamp.Models.Reports>
+@using Microsoft.AspNetCore.Identity
+@using Web2019ReVamp.Data;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('.IncrementUpvotes').click(function () {
+            $.ajax({
+                type: 'GET',
+                url: '/Reports/IncrementUpvotes?reportId=' + $(this).attr('data-key'),
+                success: function (result) {
+                    //search for label containing upvotes for this report and replcae the value with result
+                    
+                }
+            });
+        });
+    });
+</script>
+
+<div class="shadow text-center margin-top">
+    <div class="row text-center">
+        <h2 class="title">Sort By</h2>
+    </div>
+    <div class="row index-header">
+        <div class="col-md-3">
+            <a asp-action="Index" asp-route-sortOrder="ReportDate" class="body-links" asp-controller="Reports">ReportDate</a>
+        </div>
+        <div class="col-md-3">
+            <a asp-action="Index" asp-route-sortOrder="Upvotes" class="body-links" asp-controller="Reports">Upvotes</a>
+        </div>
+        <div class="col-md-3">
+            <a asp-action="Index" asp-route-sortOrder="IncidentDate" class="body-links" asp-controller="Reports">IncidentDate</a>
+        </div>
+        <div class="col-md-3">
+            <a asp-action="Index" asp-route-sortOrder="Personal" class="body-links" asp-controller="Reports">Personal</a>
+        </div>
+    </div>
+</div>
+
+
+@foreach (var item in Model)
+{
+
+    <div class="content-container shadow">
+
+        <div class="row">
+            <div class="col-md-8  ">
+                @Html.DisplayFor(modelItem => item.Title)
+
+            </div>
+            <div class="col-md-4 text-right">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    @if (UserManager.GetUserId(User).Equals(item.UserId) || User.IsInRole("Investigator"))
+                    {
+
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="body-links">Delete</a>
+
+                    }
+                }
+
+            </div>
+
+        </div>
+        <div class="row">
+            <a asp-action="Details" asp-route-id="@item.Id" class="body-links">
+                <div class="content-image">
+                    <img src="@item.Photo" alt="@item.PhotoName" class="content-image-image img-responsive" @*asp-append-version="true" *@ />
+
+
+                </div>
+            </a>
+        </div>
+        <div class="row">
+            <div class="col-md-4 content-text">
+                <label data-key="@item.Id">@item.Upvotes</label> @*Find with jquery*@
+                @*<button onclick="IncrementUpvotes();">Upvote</button>*@
+                <input type="button" value="Upvote" class="btn btn-default button-spacing IncrementUpvotes" data-key="@item.Id" />
+        
+            </div>
+            @*<div class="col-md-2 content-text">
+                    Report Uploaded on
+                    <br />
+                    @item.RepDate
+                    </div>
+                 <div class="col-md-2">
+                    Incident Occured on
+                    <br />
+                    @Html.DisplayFor(modelItem => item.HazardDateTime)
+
+
+                </div>*@
+            <div class="col-md-4">
+                <div class="row">
+                    Report Uploaded on
+
+                    @item.RepDate
+                </div>
+                <div class="row">
+                    Incident Occured on
+                    @Html.DisplayFor(modelItem => item.HazardDateTime)
+                </div>
+            </div>
+            <div class="col-md-4 content-text">
+                @Html.DisplayFor(modelItem => item.Location)
+            </div>
+        </div>
+
+    </div>
+}

@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>aspnet-Web2019ReVamp-5452B381-AD81-4E35-BD6A-C4226F33AEAC</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="2.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+    <PackageReference Include="SendGrid" Version="9.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\banner1.svg" />
+    <None Include="wwwroot\Images\banner2.svg" />
+    <None Include="wwwroot\Images\banner3.svg" />
+    <None Include="wwwroot\Images\items\default.jpg" />
+  </ItemGroup>
+
+</Project>

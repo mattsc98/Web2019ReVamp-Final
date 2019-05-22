@@ -1,0 +1,44 @@
+@using Microsoft.AspNetCore.Identity
+@using Web2019ReVamp.Data;
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Reports", new { area = "" })" method="post" id="logoutForm" class="text-center">
+        <div class="form-row inner-login-sidebar">
+
+            <h5 class="text-center text-white">Welcome</h5>
+            <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@UserManager.GetUserName(User)</a>
+        </div>
+        <div class="form-row">
+            <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+
+        </div>
+    </form>
+        @*<ul class="nav navbar-nav account_options text-center">
+            <li>
+                <h5 class="text-center">Welcome</h5>
+                <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@UserManager.GetUserName(User)!</a>
+            </li>
+            <li>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+            </li>
+        </ul>*@
+}
+else
+{   
+<div class="row text-center">
+    <div class="col-md-6">
+        <a asp-area="Identity" asp-page="/Account/Register">Register</a>
+    </div>
+    <div class="col-md-6">
+        <a asp-area="Identity" asp-page="/Account/Login">Login</a>
+    </div>
+</div>
+    @*<ul class="nav navbar-nav account_options text-center">
+        <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+        <li><a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+    </ul>*@
+}

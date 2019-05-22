@@ -1,0 +1,130 @@
+﻿@model Web2019ReVamp.Models.Reports
+@using Microsoft.AspNetCore.Identity
+@using Web2019ReVamp.Data;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    @if (UserManager.GetUserId(User).Equals(Model.UserId) || User.IsInRole("Investigator"))
+    {
+
+
+        <div class="report-details-container shadow">
+
+            <div class="row ">
+
+                <div class="row">
+                    <h2 class="text-center title-details">Edit Report</h2>
+                    <hr />
+
+                </div>
+                <div class="col-md-12">
+                    <form asp-action="Edit" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="form-row">
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label asp-for="Title" class="control-label"></label>
+                                    <input asp-for="Title" class="form-control" />
+                                    <span asp-validation-for="Title" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <label>Upvotes</label>
+                                <p class="text-center">@Html.DisplayFor(model => model.Upvotes)</p>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="HazardType" class="control-label"></label>
+                                    <select asp-for="HazardType" class="form-control">
+                                        <option value="vehicle">Vehicle</option>
+                                        <option value="Structure">Structure</option>
+                                        <option value="Condition">Condition</option>
+                                        <option value="Unsafe Act">Unsafe Act</option>
+                                    </select>
+                                    <span asp-validation-for="HazardType" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="HazardDateTime" class="control-label"></label>
+                                    <input asp-for="HazardDateTime" class="form-control" />
+                                    <span asp-validation-for="HazardDateTime" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row form-spacing">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label asp-for="RepDescription" class="control-label"></label>
+                                    <textarea asp-for="RepDescription" class="form-control"></textarea>
+                                    <span asp-validation-for="RepDescription" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row form-spacing">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label asp-for="Location" class="control-label"></label>
+                                    <textarea asp-for="Location" class="form-control"></textarea>
+                                    <span asp-validation-for="Location" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <img src="@Model.Photo" alt="@Model.PhotoName" class="image-details img-responsive" asp-append-version="true" />
+                            </div>
+                        </div>
+                        <div class="form-row form-spacing">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label asp-for="Photo" class="control-label"></label>
+                                    <input asp-for="Photo" type="file" class="form-control" />
+                                    <span asp-validation-for="Photo" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div>
+                <a asp-action="Index" class="body-links"><h4>Return Home</h4></a>
+            </div>
+        </div>
+
+
+    }
+    else
+    {
+        <p>You do not have permission to edit this report</p>
+    }
+}
+else
+{
+    <p>To edit report please login</p>
+}
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

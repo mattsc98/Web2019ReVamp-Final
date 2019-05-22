@@ -1,0 +1,110 @@
+﻿@model Web2019ReVamp.Models.Reports
+@using Microsoft.AspNetCore.Identity
+@using Web2019ReVamp.Data;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+@*reason that names are not directly from database is cause someo f them have inapporiate names for the view*@
+
+    <div class="report-details-container shadow">
+        <div class="row">
+            <h3 class="text-center title-details">@Html.DisplayFor(model => model.Title)</h3>
+            <hr />
+
+        </div>
+
+
+        <div class="row report-details-row text-center">
+            <div class="col-md-4">
+                <label>Report uploaded on</label> <br />
+                <div class="well well-sm"> @Html.DisplayFor(model => model.RepDate)</div>
+            </div>
+            <div class="col-md-4">
+                <label>Upvotes</label>
+                <div class="well well-sm">@Html.DisplayFor(model => model.Upvotes)</div>
+            </div>
+            <div class="col-md-4">
+                <label>Hazard occured ob</label><br />
+                <div class="well well-sm"> @Html.DisplayFor(model => model.HazardDateTime)</div>
+            </div>
+        </div>
+
+        <div class="row report-details-row text-center">
+            <div class="col-md-6">
+                <label>Location</label> <br />
+                <div class="well well-sm">@Html.DisplayFor(model => model.Location)</div>
+            </div>
+            <div class="col-md-6">
+                <label>Type of Hazard</label> <br />
+
+                <div class="well well-sm">@Html.DisplayFor(model => model.HazardType)</div>
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <label>Description</label> <br />
+
+                <div class="well well-sm">@Html.DisplayFor(model => model.RepDescription)</div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <img src="@Model.Photo" alt="@Model.PhotoName" class="image-details img-responsive" asp-append-version="true" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <label>Status</label>
+            </div>
+            <div class="col-md-2">
+                @Html.DisplayFor(model => model.Status)
+
+            </div>
+        </div>
+        <hr />
+
+
+        @if (SignInManager.IsSignedIn(User))
+        {
+            @if (UserManager.GetUserId(User).Equals(Model.UserId) || User.IsInRole("Investigator"))
+            {
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="body-links"><h3 class="text-center">Edit Report</h3></a>
+                    </div>
+                    <div class="col-md-6 ">
+                        <a asp-action="Index" class="body-links"><h3 class="text-center">Return Home</h3></a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        <a asp-action="Index" class="body-links"><h3 class="text-left">Return Home</h3></a>
+
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    <a asp-action="Index" class="body-links"><h3 class="text-left">Return Home</h3></a>
+
+                </div>
+            </div>
+        }
+    </div>
+

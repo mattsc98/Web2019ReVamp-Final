@@ -1,0 +1,378 @@
+﻿#sidebar {
+    background: #1b1e21;
+    height: 100%;
+}
+
+    #sidebar p {
+        color: white;
+    }
+
+    #sidebar h2 {
+        color: white;
+    }
+
+.sidebar-content {
+   
+    margin-top: 20px;
+}
+
+.sidebar-title {
+    margin-top: 20px;
+    margin-left: 50px;
+    text-decoration: none;
+}
+
+.sidebar-form {
+    width:220px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 20px;
+}
+
+.sidebar-links {
+    text-align: center;
+}
+
+.top-report {
+    background: white;
+    width: 800px;
+    height: 450px;
+    padding: 20px;
+    padding-top:5px;
+    margin-top: 30px;
+    margin-left: 40px;
+    border-radius: 5px;
+}
+
+.top-report-content {
+    color: black;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.content-container {
+   
+    padding: 15px;
+    width: 800px;
+    height: auto;
+    margin-left: 200px;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border-radius:10px;
+}
+
+.content-text {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+/*.content-image {
+    display: block;
+    margin-right: auto;
+    margin-left:auto;
+    margin-bottom:50px;
+    width: 50%;
+}*/
+
+.content-image-image {
+    height: 300px;
+    width: 700px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    align-content:center;
+    margin-top: 10px;
+    margin-bottom:40px;
+    border-radius:5px;
+}
+
+#left-side-container {
+    background: black;
+}
+
+#wrapper {
+    padding-left: 250px;
+    transition: all 0.4s ease 0s;
+}
+
+#sidebar-wrapper {
+    margin-left: -250px;
+    left: 250px;
+    width: 250px;
+    background: #3a3b3b;
+    position: fixed;
+    height: 100%;
+    /*overflow-y: auto;*/
+    z-index: 1000;
+    transition: all 0.4s ease 0s;
+}
+
+#page-content-wrapper {
+    width: 100%;
+}
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width:767px) {
+
+    #wrapper {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        left: 0;
+    }
+
+    #wrapper.active {
+        position: relative;
+        left: 250px;
+    }
+
+        #wrapper.active #sidebar-wrapper {
+            left: 250px;
+            width: 250px;
+            transition: all 0.4s ease 0s;
+        }
+}
+
+.profile-container {
+    margin-left: 100px;
+    height: 300px;
+    width: 800px;
+}
+
+.cover-photo {
+    height: 200px;
+}
+
+.cover-photo-image {
+    margin-left: 15px;
+    height: 200px;
+    width: 800px;
+    position: relative;
+}
+
+.profile-photo-image {
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    top: 120px;
+    margin-left: 350px;
+}
+
+.report-image-container {
+    margin: 10px;
+    height: 200px;
+    width: 400px;
+}
+
+.report-description {
+    margin-top: 50px;
+    width: 800px;
+    margin-left: 100px;
+}
+
+.justify-text-margin {
+    text-align: justify;
+    margin: 10px;
+}
+
+.title {
+    text-align: center;
+    margin: 10px;
+}
+
+.shadow {
+    -webkit-box-shadow: 0px 10px 16px -5px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 10px 16px -5px rgba(0,0,0,1);
+    box-shadow: 0px 10px 16px -5px rgba(0,0,0,1);
+    background-color: white;
+    border-radius: 2px;
+}
+
+body {
+    background-color: #fbf8f3;
+}
+
+.report-map {
+    height: 400px;
+    width: 800px;
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+.report-comments {
+    width: 800px;
+    margin-left: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.comment-comment {
+    margin: 10px;
+}
+
+.report-writer-container {
+    margin-left: 100px;
+    width: 800px;
+}
+
+.report-writer-contents {
+    margin: 10px;
+    padding: 30px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.report-area {
+    width: 600px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 50px;
+}
+
+.report-personal {
+    margin: 10px;
+    margin-top: 50px;
+    margin-left: 70px;
+}
+
+.report-image-upload {
+    border-style: solid;
+    border-color: #b7b7b7;
+    border-width: 0.5px;
+    border-radius: 2px;
+    width: 600px;
+    height: 100px;
+    margin-left: 80px;
+    margin-top: 20px;
+}
+
+.report-map-upload {
+    border-style: solid;
+    border-color: #b7b7b7;
+    border-width: 0.5px;
+    border-radius: 2px;
+    height: 400px;
+    width: 600px;
+    margin-top: 50px;
+    margin-left: 80px;
+}
+
+.button-confirm {
+    width: 100px;
+    height: 30px;
+    border-style: solid;
+    border-color: #b7b7b7;
+    border-width: 0.5px;
+    border-radius: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.title-report {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.container-links {
+    color: black;
+    text-decoration: none;
+}
+
+.black-text {
+    color: black;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.form-spacing{
+    margin-top:20px;
+    margin-bottom:10px;
+}
+
+.button-spacing{
+    margin-top:30px;
+}
+
+.body-links{
+    color:black;
+    text-decoration:none;
+}
+
+.account_options{
+    margin:20px;
+    margin-bottom:30px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.report-details-row{
+    margin-bottom:10px;
+}
+
+.title-details{
+    margin-bottom:20px;
+}
+.report-details-container {
+    margin: 10px;
+    padding: 30px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+.text-container {
+    border: 0.5px solid black;
+    border-radius:10px;
+    
+}
+
+.image-details {
+    height:500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    border-radius:5px;
+}
+
+.login-sidebar{
+    padding:10px;
+    margin-top:30px;
+    margin-bottom:30px;
+}
+.text-white{
+    color:white;
+}
+.inner-login-sidebar{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.index-header{
+
+    margin-top: 10px;
+    margin-bottom:15px;
+    padding:10px;
+    padding-top:5px;
+}
+
+.margin-top{
+    margin-top: 20px;
+}

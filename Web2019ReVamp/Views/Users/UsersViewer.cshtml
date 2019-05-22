@@ -1,0 +1,40 @@
+﻿ @model IEnumerable<Web2019ReVamp.Data.ApplicationUser>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div class="top-report shadow">
+    <div class="row">
+        <h2 class="text-center">Top Reporters</h2>
+    </div>
+        <hr />
+    <div class="row">
+        <div class="col-md-8">
+            <h4>Full Name</h4>
+        </div>
+        <div class="col-md-4">
+            <h4 class="text-center">Total Reports</h4>
+        </div>
+    </div>
+      
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                <div class="col-md-8">
+                   <p>@Html.DisplayFor(modelItem => item.FirstName)   @Html.DisplayFor(modelItem => item.LastName)</p>
+                </div>
+                <div class="col-md-4">
+                   <p class="text-center">@Html.DisplayFor(modelItem => item.totalReports)</p>
+
+                </div>
+            </div>
+
+            
+
+        }
+            
+</div>
+
+
+

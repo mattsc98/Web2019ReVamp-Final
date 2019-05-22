@@ -1,0 +1,12 @@
+﻿@*@model Catagories
+    <form asp-controller="Reports" asp-action="Index" method="post">
+        <select asp-for="Catagory" asp-items="Model.Catagory"></select>
+        <br /><button type="submit">Register</button>
+    </form>*@
+
+@model Catagories
+
+<form asp-controller="Reports" asp-action="Index" method="post">
+    <select asp-for="Id" asp-items="@(new SelectList(ViewBag.catagoriesLists,"Id","Catagory"))" class="form-control"></select>
+    <br /><button type="submit">Register</button>
+</form>
