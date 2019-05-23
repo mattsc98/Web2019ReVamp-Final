@@ -8,7 +8,8 @@ using Web2019ReVamp.Areas.Identity.Services;
 namespace WebPWrecover.Services
 {
     public class EmailSender : IEmailSender
-    {
+    { 
+        
         public EmailSender(IOptions<AuthMessageSenderOptions> optionsAccessor)
         {
             Options = optionsAccessor.Value;
@@ -39,5 +40,7 @@ namespace WebPWrecover.Services
 
             return client.SendEmailAsync(msg);
         }
+        
+        
     }
 }

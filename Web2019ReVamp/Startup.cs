@@ -50,12 +50,14 @@ namespace Web2019ReVamp
             //    config.SignIn.RequireConfirmedEmail = true;
             //});
             //       .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddDefaultIdentity<ApplicationUser>(config =>
             {
                 config.SignIn.RequireConfirmedEmail = true;
             })
+            
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-
+            
 
             //services.AddDefaultIdentity<ApplicationUser>()
             //        .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -71,13 +73,13 @@ namespace Web2019ReVamp
 
             services.AddDbContext<Web2019ReVampContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("Web2019ReVampContext")));
-
+            
             //requires
             // using Microsoft.AspNetCore.Identity.UI.Services;
             //using WebPWrecover.Services;
             services.AddTransient<IEmailSender, EmailSender>();
             services.Configure<AuthMessageSenderOptions>(Configuration);
-
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

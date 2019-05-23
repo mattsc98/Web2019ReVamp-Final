@@ -40,18 +40,18 @@ namespace Web2019ReVamp
             UserManager<ApplicationUser> userManager)
         {
             var testAdmin = await userManager.Users
-                .Where(x => x.UserName == "admin@todo.local")
+                .Where(x => x.UserName == "AdminZ")
                 .SingleOrDefaultAsync();
 
             if (testAdmin != null) return;
 
             testAdmin = new ApplicationUser
             {
-                UserName = "mattsc98@gmail.com",
+                UserName = "AdminZ",
                 Email = "mattsc98@gmail.com"
             };
             await userManager.CreateAsync(
-                testAdmin, "Password@123");
+                testAdmin, "Admin@123");
             await userManager.AddToRoleAsync(
                 testAdmin, Constants.AdministratorRole);
         }
