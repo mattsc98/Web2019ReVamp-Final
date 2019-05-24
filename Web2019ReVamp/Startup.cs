@@ -38,6 +38,7 @@ namespace Web2019ReVamp
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
             //HERE DO SOMETHING
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
@@ -55,8 +56,9 @@ namespace Web2019ReVamp
             {
                 config.SignIn.RequireConfirmedEmail = true;
             })
-            
+                .AddRoles<IdentityRole>() //GIVES ERROR
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             
 
             //services.AddDefaultIdentity<ApplicationUser>()
@@ -83,7 +85,7 @@ namespace Web2019ReVamp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env) //ApplicationDbInitializer.SeedUsers(userManager);
         {
             if (env.IsDevelopment())
             {
@@ -108,6 +110,9 @@ namespace Web2019ReVamp
                     name: "default",
                     template: "{controller=Reports}/{action=Index}/{id?}");
             });
+
+
+            //ApplicationDbInitializer.SeedUsers(userManager);
         }
     }
 }

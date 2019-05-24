@@ -26,6 +26,10 @@ namespace Web2019ReVamp.Data
             builder.Entity<ApplicationUser>().HasIndex(x => x.UserName).IsUnique();
 
             base.OnModelCreating(builder);
+
+            //seed admin
+            builder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Administrator", NormalizedName = "Administrator".ToUpper() });
+
         }
     }
 
