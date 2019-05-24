@@ -20,7 +20,7 @@ namespace Web2019ReVamp.Controllers
         {
             List<Catagories> catagoriesList = new List<Catagories>();
 
-            catagoriesList = (from Catagories in _context.Catagoies select Catagories).ToList();
+            //catagoriesList = (from Catagories in _context.Catagoies select Catagories).ToList();
 
             ViewBag.catagoriesLists = catagoriesList;
 
@@ -34,7 +34,7 @@ namespace Web2019ReVamp.Controllers
             if (ModelState.IsValid)
             {
                 var msg = catagories.Catagory + " selected";
-                return RedirectToAction("IndexSuccess", new { message = msg });
+                //return RedirectToAction("IndexSuccess", new { message = msg });
             }
 
             // If we got this far, something failed; redisplay form.
