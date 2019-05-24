@@ -14,7 +14,7 @@ namespace Web2019ReVamp.Models
         {
             var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
             string[] roleNames = { "Admin", "Investigator", "Reporter" };
-            IdentityResult roleResult;
+            IdentityResult roleResult;  
 
             foreach (var roleName in roleNames)
             {
@@ -24,6 +24,9 @@ namespace Web2019ReVamp.Models
                     roleResult = await RoleManager.CreateAsync(new IdentityRole(roleName));
                 }
             }
+                
+
+
         }
 
     }
