@@ -13,7 +13,7 @@ namespace Web2019ReVamp.Models
             : base(options)
         {
         }
-        public DbSet<Catagories> Catagoies { get; set; }
+        //public DbSet<Catagories> Catagoies { get; set; }
         public DbSet<Reports> Reports { get; set; }
         public DbSet<Web2019ReVamp.Models.Upvotes> Upvotes { get; set; }
         
