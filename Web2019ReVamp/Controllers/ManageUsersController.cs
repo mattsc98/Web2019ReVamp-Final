@@ -11,7 +11,7 @@ using Web2019ReVamp.Models;
 
 namespace Web2019ReVamp.Controllers
 {
-    [Authorize(Roles = "Administrator, Admin")]
+    //[Authorize(Roles = "Administrator, Admin")]
     //[Authorize]
     public class ManageUsersController : Controller
     {

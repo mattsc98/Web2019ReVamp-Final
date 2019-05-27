@@ -41,6 +41,7 @@ namespace Web2019ReVamp
 
             //HERE DO SOMETHING
             services.AddDbContext<ApplicationDbContext>(options =>
+
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             //services.AddDefaultIdentity<ApplicationUser>()

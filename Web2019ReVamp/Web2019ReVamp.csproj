@@ -20,8 +20,4 @@
     <None Include="wwwroot\Images\items\default.jpg" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\ManageUsers\" />
-  </ItemGroup>
-
 </Project>
