@@ -22,7 +22,7 @@
                 url: '/Reports/IncrementUpvotes?reportId=' + $(this).attr('data-key'),
                 success: function (result) {
                     //search for label containing upvotes for this report and replcae the value with result
-                    
+                    location.reload();
                 }
             });
         });
