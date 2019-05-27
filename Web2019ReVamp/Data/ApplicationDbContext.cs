@@ -31,6 +31,8 @@ namespace Web2019ReVamp.Data
             builder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Administrator", NormalizedName = "Administrator".ToUpper() });
 
         }
+
+        public DbSet<Web2019ReVamp.Models.Investigations> Investigations { get; set; }
     }
 
 }

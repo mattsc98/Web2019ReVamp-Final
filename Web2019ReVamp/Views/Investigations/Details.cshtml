@@ -1,0 +1,36 @@
+﻿@model Web2019ReVamp.Models.Investigations
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Investigations</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationUser)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationUser.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Reports)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Reports.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InvEntry)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InvEntry)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -7,7 +7,7 @@ using Web2019ReVamp.Data;
 
 namespace Web2019ReVamp.Models
 {
-    public class Investigation
+    public class Investigations
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
@@ -16,7 +16,7 @@ namespace Web2019ReVamp.Models
         [ForeignKey("UserId")]
         public virtual ApplicationUser ApplicationUser { get; set; }
 
-        public string ReportId { get; set; }
+        public int ReportId { get; set; }
         [ForeignKey("ReportId")]
         public virtual Reports Reports { get; set; }
 
